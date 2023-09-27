@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RaceApp</string>
+    <string name="race_text">Race Start</string>
 </resources>
