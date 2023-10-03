@@ -63,7 +63,6 @@ fun HomeScreen() {
     }
 
 
-
     val playerOne: Participant = remember {
         Participant("playerOne", maxProgress = 100)
     }
@@ -75,7 +74,8 @@ fun HomeScreen() {
     if (raceInProgress) {
         LaunchedEffect(playerOne, playerTwo) {
             coroutineScope {
-
+// Tek bir launch icinde yaparsam birincinin bitmesini bekliyor. Ayri launch icinde yazarsam
+                // Fire and Forget mantigiyla calisiyor.
                 launch {
                     playerOne.runPlayer()
 
@@ -131,8 +131,8 @@ fun HomeScreen() {
                     playerOne.reset()
                     playerTwo.reset()
                     raceInProgress = false
-                    if(isWalking){
-                        isWalking=false
+                    if (isWalking) {
+                        isWalking = false
                     }
                 })
 
